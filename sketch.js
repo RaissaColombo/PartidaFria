@@ -91,18 +91,6 @@ function mouseClicked(){
 }
 
 function botaoPlay (){
-  
-   //if (mouseX > xMinBotaoP && mouseX < xMaxBotaoP && mouseY > yMinBotaoP && mouseY < yMaxBotaoP){
-      //fill (250);
-        //if (mouseIsPressed) {
-           // if (mouseButton == LEFT){
-            //tela = 1;
-            //}
-        //}
-   // }
-   // else{
-      //fill(237,170,125); //preenchimento do botão (sem)   
-    //}
   fill(237,170,125);
   rect (xMinBotaoP,yMinBotaoP,larguraBotaoP,alturaBotaoP,40);
   triangle (xMinBotaoP + 20, 405,yMinBotaoP - 85 , 390, xMinBotaoP+ 20, 370);
@@ -137,12 +125,6 @@ function telaInicial (){
     textFont(myFont);
     text("Partida ",120,60); // título do jogo
     text("Fria",180,120)
-    //strokeWeight(2)
-    //stroke(48) // borda da letra
-    //fill(0);
-    
-    //textSize(52);
-    //text("PARTIDA FRIA", 100, 45,280);
     
 
   botaoMenu("Instruções", yMinBotao1, yMaxBotao1, 180, "Instrucoes")// posição e tela
@@ -163,7 +145,6 @@ function telaInstrucoes (){
   // título página:
   textSize (50);
   fill(0); // cor da letra
-  //stroke(100);// borda da letra
   text("Instruções:",130,60);
   
   //informações do jogo:
@@ -207,9 +188,7 @@ function telaCredito (){
   fill(50);
   text("Professor de Geografia",70,150,400);
   text("Estudante de Ciências e Tecnologia na UFRN",70,345,400);
-  //image(imagemEducador,20,110);
-  //image(imagemProgramadora,20,280);
-}
+  }
 
 function alternativas (texto,tam, localx, localt, yMin, yMax,ytexto, opcao, proximaTela){ //botoes resposta das questões
     if (mouseX > localx && mouseX < xMaxBotao3 && mouseY > yMin && mouseY < yMax){
@@ -245,13 +224,11 @@ function alternativas (texto,tam, localx, localt, yMin, yMax,ytexto, opcao, prox
 
 function telaRespostaCerta(proximaTela, proximaFase){
   tela = proximaTela;
-  console.log("CERTA - proximaFase="+proximaFase)
   background(244,220,161);
   image(img2,0,0, 500,500)
   
   retornoMenu () //função (informções contidas) de voltar ao menu
-  //cronometro() //passar automático para outra fase
-  
+   
   textSize (80);
   fill(1,49,83); //Define a cor usada para preencher as formas.
   text("MUITO BEM!!!",30,300);
@@ -260,10 +237,10 @@ function telaRespostaCerta(proximaTela, proximaFase){
   fill(0); //Define a cor usada para preencher as formas.
   text("OBS: Aperte a tecla de espaço para continuar!",24,450);
   
-  //pontuacaoCerta = pontuacaoCerta + 1; //contagem de pontos
+  
   
 
-  if (keyIsDown(32)){ ///passar telaaaaaaaaaaa no espaço
+  if (keyIsDown(32)){ ///passar tela no espaço
   tela = proximaFase;
     
   }
@@ -271,12 +248,9 @@ function telaRespostaCerta(proximaTela, proximaFase){
 
 function telaRespostaErrada(proximaTela, proximaFase){
   tela = proximaTela; 
-  console.log("ERRADA - proximaFase="+proximaFase)
   background(244,220,161);
   image(img2,0,0, 500,500)
-  
-  ///temporizador
-  
+    
   textSize (250);
   fill(195,56,45); //Define a cor usada para preencher as formas.
   //R, G & B --> fill(255, 204, 0);
@@ -582,6 +556,7 @@ function telaFase10(){
 function telaFinal(){
   fase = 30;
   background(255)
+  retornoMenu()
   fill(0)
   textSize(40)
   text ("Você acertou:",110,180)
@@ -627,14 +602,13 @@ function draw (){
             pontuacaoCerta ++;
             status1=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
-          
+                    
         }
         if (tela == 300 && fase==1){  //Resposta errada
           telaRespostaErrada(300,4)
         }
         
-    if (tela == 4){ //////////////////
+    if (tela == 4){ 
       telaFase2()
     }
         if (tela == 200 && fase==2){ //Resposta certa
@@ -644,14 +618,13 @@ function draw (){
             pontuacaoCerta ++;
             status2=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
-          
+         
         }
         if (tela == 300 && fase==2){ //Resposta errada
           telaRespostaErrada(300,6)
         }
         
-    if (tela == 6){ ///////////
+    if (tela == 6){ 
       telaFase3()
     }
         if (tela == 200 && fase==3){
@@ -660,14 +633,13 @@ function draw (){
             pontuacaoCerta ++;
             status3=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==3){
           telaRespostaErrada(300,8)
         }
         
-    if (tela == 8){ ///////////////
+    if (tela == 8){ 
        telaFase4()
     }
         if (tela == 200 && fase==4){
@@ -676,7 +648,6 @@ function draw (){
             pontuacaoCerta ++;
             status4=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==4){
@@ -692,7 +663,6 @@ function draw (){
             pontuacaoCerta ++;
             status5=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==5){
@@ -708,7 +678,6 @@ function draw (){
             pontuacaoCerta ++;
             status6=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==6){
@@ -724,7 +693,6 @@ function draw (){
             pontuacaoCerta ++;
             status7=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==7){
@@ -740,7 +708,6 @@ function draw (){
             pontuacaoCerta ++;
             status8=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==8){
@@ -756,7 +723,6 @@ function draw (){
             pontuacaoCerta ++;
             status9=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==9){
@@ -772,7 +738,6 @@ function draw (){
             pontuacaoCerta ++;
             status10=true;
           }
-          console.log("Pontuação atual: "+pontuacaoCerta)
           
         }
         if (tela == 300 && fase==10){
